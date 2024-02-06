@@ -10,6 +10,7 @@ public class Volvo240 extends Car{
         color = Color.black;
         enginePower = 120;
         modelName = "Volvo240";
+        image = "pics/Volvo240.jpg";
         stopEngine();
     }
     @Override
