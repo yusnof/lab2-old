@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.List;
 
 /*
 * This class represents the Controller part in the MVC pattern.
@@ -57,12 +58,61 @@ public class CarController {
         }
     }
 
+     public List<Car> getCars(){
+        return cars;
+     }
     // Calls the gas method for each car once
     void gas(int amount) {
         double gas = ((double) amount) / 100;
         for (Car car : cars
                 ) {
             car.gas(gas);
+        }
+    }
+    void brake(int amount) {
+        double brake = ((double) amount) / 100;
+        for (Car car : cars
+        ) {
+            car.brake(brake);
+        }
+    }
+    void startAllCars() {
+        for(Car car: cars) {
+            car.startEngine();
+        }
+    }
+
+    void stopAllCars(){
+        for (Car car : cars){
+            car.stopEngine();
+        }
+    }
+    void turboOn(){
+        for(Car car : cars){
+            if (car.getClass() == Saab95.class){
+                ((Saab95) car).setTurboOn();
+            }
+        }
+    }
+    void turboOff() {
+        for(Car car: cars) {
+            if (car.getClass() == Saab95.class){
+                ((Saab95) car).setTurboOff();
+            }
+        }
+    }
+    void truckBedDown(){
+        for(Car car: cars){
+            if (HasTruckBed.class.isAssignableFrom(car.getClass())){
+                ((HasTruckBed) car).lowerTruckBed();
+            }
+        }
+    }
+    void truckBedUp() {
+        for(Car car: cars) {
+            if (HasTruckBed.class.isAssignableFrom(car.getClass())){
+                ((HasTruckBed) car).lowerTruckBed();
+            }
         }
     }
 }

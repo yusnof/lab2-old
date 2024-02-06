@@ -2,6 +2,7 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.util.*;
@@ -19,16 +20,18 @@ public class DrawPanel extends JPanel{
     Point WorkshopPoint = new Point(300,300);
 
     // TODO: Make this general for all cars
-    void moveit(int x, int y){
-        point.x = x;
-        point.y = y;
+    void moveit(int x, int y, Car car){
+        point.x = (int) car.getX();
+        point.y = (int) car.getY();
     }
-
     // Initializes the panel and reads the images
     public DrawPanel(int x, int y) {
         this.setDoubleBuffered(true);
         this.setPreferredSize(new Dimension(x, y));
         this.setBackground(Color.green);
+        listOfPoints.add(new Point(0, 100));
+        listOfPoints.add(new Point(0, 200));
+        listOfPoints.add(new Point(0, 300));
         // Print an error message in case file is not found with a try/catch block
         try {
             // You can remove the "pics" part if running outside of IntelliJ and
@@ -55,3 +58,7 @@ public class DrawPanel extends JPanel{
         g.drawImage(WorkshopImage, WorkshopPoint.x, WorkshopPoint.y, null);
     }
 }
+// TODO
+//  1. Use HashMap to keep track of image/car,
+//  2. Have two lists listPoints, List Cars, keep track of things with index
+// 3. HackFraud Peter style!!!! 100 100 100
