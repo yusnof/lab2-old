@@ -5,6 +5,7 @@ public class Saab95 extends Car{
     public boolean turboOn;
 
     public Saab95(){
+        image="pics/Saab95.jpg";
         weight=1000;
         nrDoors = 2;
         modelName = "Saab95";

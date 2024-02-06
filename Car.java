@@ -6,7 +6,7 @@ import java.lang.Math;
     protected Color color;
     protected double enginePower,currentSpeed,x,y,direction;
     protected String modelName;
-
+    protected String image;
     public int getNrDoors(){
         return nrDoors;
     }
