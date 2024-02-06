@@ -13,7 +13,7 @@ public class DrawPanel extends JPanel{
     BufferedImage image;
     // To keep track of a single car's position
     Point point = new Point();
-
+    ArrayList<Point> listOfPoints = new ArrayList<Point>();
     BufferedImage WorkshopImage;
     Point WorkshopPoint = new Point(300,300);
 
