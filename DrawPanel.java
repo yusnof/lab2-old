@@ -20,9 +20,11 @@ public class DrawPanel extends JPanel{
     CarController  carController = new CarController();
 
     // TODO: Make this general for all cars
-    void moveit(int x, int y, Car car){
-        point.x = (int) car.getX();
-        point.y = (int) car.getY();
+    void moveit(int x, int y, GUIComponents car){   // TODO Called and changes kords, image does not move.
+        car.setX(x);
+        car.setY(y);
+        System.out.println("moveit Called!");
+        System.out.println(car.getPoint().x + " " + car.getPoint().y);
     }
     // Initializes the panel and reads the images
     public DrawPanel(int x, int y) {
@@ -46,11 +48,10 @@ public class DrawPanel extends JPanel{
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        g.drawImage(image, point.x, point.y, null); // see javadoc for more info on the parameters
-        g.drawImage(WorkshopImage, WorkshopPoint.x, WorkshopPoint.y, null);
+        for (GUIComponents c : carController.getCars()) {
+            g.drawImage(image, c.getPoint().x, c.getPoint().y, null);
+        }
+        //g.drawImage(image, point.x, point.y, null); // see javadoc for more info on the parameters
+        //g.drawImage(WorkshopImage, WorkshopPoint.x, WorkshopPoint.y, null);
     }
 }
-// TODO
-//  1. Use HashMap to keep track of image/car,
-//  2. Have two lists listPoints, List Cars, keep track of things with index
-// 3. HackFraud Peter style!!!! 100 100 100

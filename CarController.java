@@ -2,7 +2,8 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.List;import java.awt.*;
+
 
 /*
 * This class represents the Controller part in the MVC pattern.
@@ -22,9 +23,17 @@ public class CarController {
     // The frame that represents this instance View of the MVC pattern
     CarView frame;
     // A list of cars, modify if needed
-    ArrayList<Car> cars = new ArrayList<>();
-
+    ArrayList<GUIComponents> cars;
     //methods:
+    public CarController(){
+        cars=new ArrayList<>(3);
+        cars.add(new GUIComponents(new Volvo240(),"pics/Volvo240.jpg",new Point(0,0)));
+        cars.add(new GUIComponents(new Saab95(),"pics/Saab95.jpg",new Point(0,100)));
+        cars.add(new GUIComponents(new Scania(),"pics/Scania.jpg",new Point(0,200)));
+    }
+    public ArrayList<GUIComponents> getCars() {
+        return cars;
+    }
 
     public static void main(String[] args) {
         // Instance of this class
@@ -35,17 +44,17 @@ public class CarController {
         // Start the timer
         cc.timer.start();
     }
-
     /* Each step the TimerListener moves all the cars in the list and tells the
     * view to update its images. Change this method to your needs.
     * */
+
     private class TimerListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
 
-            for (Car car : cars) {
-                car.move();
-                int x = (int) Math.round(car.getX());
-                int y = (int) Math.round(car.getY());
+            for (GUIComponents car : cars) {
+                car.getComponent().move();
+                int x = (int) Math.round(car.getComponent().getX());
+                int y = (int) Math.round(car.getComponent().getY());
                 frame.drawPanel.moveit(x, y, car);
                 // repaint() calls the paintComponent method of the panel
                 frame.drawPanel.repaint();
@@ -53,9 +62,6 @@ public class CarController {
         }
     }
 
-     public List<Car> getCars(){
-        return cars;
-     }
     // Calls the gas method for each car once
     void gas(int amount) {
         double gas = ((double) amount) / 100;
@@ -68,7 +74,7 @@ public class CarController {
         double brake = ((double) amount) / 100;
         for (GUIComponents car : cars
         ) {
-            car.brake(brake);
+            car.getComponent().brake(brake);
         }
     }
     void startAllCars() {
@@ -78,36 +84,37 @@ public class CarController {
     }
 
     void stopAllCars(){
-        for (Car car : cars){
-            car.stopEngine();
+        for (GUIComponents car : cars){
+            car.getComponent().stopEngine();
         }
     }
     void turboOn(){
-        for(Car car : cars){
-            if (car.getClass() == Saab95.class){
-                ((Saab95) car).setTurboOn();
+        for(GUIComponents car : cars){
+            if (car.getComponent().getClass() == Saab95.class){
+                ((Saab95) car.getComponent()).setTurboOn();
             }
         }
     }
     void turboOff() {
-        for(Car car: cars) {
-            if (car.getClass() == Saab95.class){
-                ((Saab95) car).setTurboOff();
+        for(GUIComponents car: cars) {
+            if (car.getComponent().getClass() == Saab95.class){
+                ((Saab95) car.getComponent()).setTurboOff();
             }
         }
     }
     void truckBedDown(){
-        for(Car car: cars){
+        for(GUIComponents car: cars){
             if (HasTruckBed.class.isAssignableFrom(car.getClass())){
-                ((HasTruckBed) car).lowerTruckBed();
+                ((HasTruckBed) car.getComponent()).lowerTruckBed();
             }
         }
     }
     void truckBedUp() {
-        for(Car car: cars) {
+        for(GUIComponents car: cars) {
             if (HasTruckBed.class.isAssignableFrom(car.getClass())){
-                ((HasTruckBed) car).lowerTruckBed();
+                ((HasTruckBed) car.getComponent()).lowerTruckBed();
             }
         }
     }
+
 }
