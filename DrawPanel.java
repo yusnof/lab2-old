@@ -14,10 +14,10 @@ public class DrawPanel extends JPanel{
     // Just a single image, TODO: Generalize
     BufferedImage image;
     // To keep track of a single car's position
-    Point point = new Point();
-    ArrayList<Point> listOfPoints = new ArrayList<Point>();
     BufferedImage WorkshopImage;
     Point WorkshopPoint = new Point(300,300);
+
+    CarController  carController = new CarController();
 
     // TODO: Make this general for all cars
     void moveit(int x, int y, Car car){
@@ -29,10 +29,6 @@ public class DrawPanel extends JPanel{
         this.setDoubleBuffered(true);
         this.setPreferredSize(new Dimension(x, y));
         this.setBackground(Color.green);
-        listOfPoints.add(new Point(0, 100));
-        listOfPoints.add(new Point(0, 200));
-        listOfPoints.add(new Point(0, 300));
-        // Print an error message in case file is not found with a try/catch block
         try {
             // You can remove the "pics" part if running outside of IntelliJ and
             // everything is in the same main folder.
