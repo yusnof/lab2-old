@@ -50,7 +50,6 @@ public class CarController {
                 // repaint() calls the paintComponent method of the panel
                 frame.drawPanel.repaint();
             }
-
         }
     }
 
@@ -60,9 +59,9 @@ public class CarController {
     // Calls the gas method for each car once
     void gas(int amount) {
         double gas = ((double) amount) / 100;
-        for (Car car : cars
+        for (GUIComponents car : cars
                 ) {
-            car.gas(gas);
+            car.getComponent().gas(gas);
         }
     }
     void brake(int amount) {
