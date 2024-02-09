@@ -16,15 +16,16 @@ public class Scania extends Car implements HasTruckBed {
     }
     @Override
     public void raiseTruckBed(){
-        if(truckBedAngle <= 60 && truckBedAngle >= 0 && currentSpeed == 0) {
+        if((truckBedAngle <= 60 && truckBedAngle >= 0) && currentSpeed == 0) {
             truckBedAngle += 10;
              truckBed.setTruckBed(false);
+
         }
     }
     @Override
     public void lowerTruckBed() {
 
-        if (truckBedAngle <= 70 && truckBedAngle >= 10 && currentSpeed == 0) {
+        if ((truckBedAngle <= 70 && truckBedAngle >= 10) && currentSpeed == 0) {
             truckBedAngle -= 10;
         }
         if (truckBedAngle == 0) {

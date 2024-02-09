@@ -1,3 +1,5 @@
+import com.sun.tools.javac.Main;
+
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -13,7 +15,6 @@ public class DrawPanel extends JPanel{
     // Just a single image, TODO: Generalize
     BufferedImage volvoImage;
     BufferedImage saabImage;
-
     BufferedImage scaniaImage;
     // To keep track of a single car's position
     Point point;
@@ -42,6 +43,7 @@ public class DrawPanel extends JPanel{
         points.add(new Point(0,400));
 
 
+
         // Print an error message in case file is not found with a try/catch block
         try {
             volvoImage = ImageIO.read(DrawPanel.class.getResourceAsStream("pics/Volvo240.jpg"));
@@ -63,7 +65,8 @@ public class DrawPanel extends JPanel{
         super.paintComponent(g);
         g.drawImage(volvoImage, points.get(0).x, points.get(0).y, null); // see javadoc for more info on the parameters
         g.drawImage(scaniaImage, points.get(1).x , points.get(1).y, null);
-        g.drawImage(saabImage, points.get(2).x , points.get(2).y , null);
+       //System.out.println("paintC:"+points.get(0).x +" "+ points.get(0).y);
+        g.drawImage(volvoImage, points.get(2).x , points.get(2).y , null);
 
 
 
