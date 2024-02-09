@@ -73,9 +73,49 @@ public class CarController {
     }
     void brake(int amount){
         double brake = ((double) amount) / 100;
-        for (Car car : cars
-        ) {
+        for (Car car : cars) {
             car.brake(brake);
+        }
+    }
+    void startAllCars(){
+        for (Car car : cars) {
+            car.startEngine();
+        }
+    }
+    void stopAllCars(){
+        for (Car car : cars) {
+            car.stopEngine();
+        }
+    }
+    void turboOn(){
+        for (Car car : cars) {
+            if(car.getClass() == Saab95.class){
+                ((Saab95) car).setTurboOn();
+            }
+        }
+
+    }
+    void turboOff(){
+        for (Car car : cars) {
+            if(car.getClass() == Saab95.class){
+                ((Saab95) car).setTurboOff();
+            }
+        }
+
+    }
+    void truckBedDown(){
+        for (Car car : cars) {
+            if(HasTruckBed.class.isAssignableFrom(car.getClass())){
+                ((HasTruckBed) car).lowerTruckBed();
+            }
+        }
+
+    }
+    void truckBedUp(){
+        for (Car car : cars) {
+            if(HasTruckBed.class.isAssignableFrom(car.getClass())){
+                ((HasTruckBed) car).raiseTruckBed();
+            }
         }
     }
 }
