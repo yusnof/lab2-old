@@ -38,6 +38,7 @@ public class Scania extends Car implements HasTruckBed {
     }
     @Override
     public void move(){
+
         if(truckBed.isTruckBedDown()) {
             super.move();
         }

@@ -63,7 +63,8 @@ public class DrawPanel extends JPanel{
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        g.drawImage(volvoImage, points.get(0).x, points.get(0).y, null); // see javadoc for more info on the parameters
+        g.drawImage(saabImage, points.get(0).x, points.get(0).y, null); // see javadoc for more info on the parameters
+
         g.drawImage(scaniaImage, points.get(1).x , points.get(1).y, null);
        //System.out.println("paintC:"+points.get(0).x +" "+ points.get(0).y);
         g.drawImage(volvoImage, points.get(2).x , points.get(2).y , null);
