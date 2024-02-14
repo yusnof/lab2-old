@@ -1,0 +1,5 @@
+Steg 1: Skapa package moduller: Grafisk och car/garage indelning.
+Steg 2: Skapa en applikations klass som kommunicerar med båda paketen genom komposition.
+Steg 3: Skapa Car/GarageFactory samt limitera åtkomsten för klientkod till andra klasser.
+Steg 4: Ge car / garage point.
+Steg 5: Skapa GUIComponent klass som hanterar image, Point och object av car/garage klasserna som en wrapper klass. 
