@@ -30,7 +30,7 @@ public class CarController {
         // Instance of this class
         CarController cc = new CarController();
 
-        cc.cars.add(new Saab95());
+         cc.cars.add(new Saab95());
          cc.cars.add(new Scania());
          cc.cars.add(new Volvo240());
 
@@ -38,10 +38,10 @@ public class CarController {
          cc.cars.get(2).setY(250);
 
         // Start a new view and send a reference of self
-        cc.frame = new CarView("CarSim 1.0", cc);
+         cc.frame = new CarView("CarSim 1.0", cc);
 
         // Start the timer
-        cc.timer.start();
+         cc.timer.start();
     }
 
     /* Each step the TimerListener moves all the cars in the list and tells the
