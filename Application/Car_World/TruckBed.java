@@ -1,4 +1,6 @@
-public class TruckBed {
+package Application.Car_World;
+
+class TruckBed {
     private boolean isTruckBedDown;
     private int maxWeight;
 

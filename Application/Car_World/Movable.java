@@ -1,6 +1,6 @@
-import java.awt.*;
+package Application.Car_World;
 
-public interface Movable {
+interface Movable {
     void move();
     void turnLeft();
     void turnRight();

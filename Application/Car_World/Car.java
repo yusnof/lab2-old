@@ -1,13 +1,15 @@
+package Application.Car_World;
+
 import java.awt.*;
 import java.lang.Math;
   public abstract class Car implements Movable{
 
-
-
     protected int nrDoors,weight;
     protected Color color;
-    protected double enginePower,currentSpeed,x,y,direction;
+    protected double enginePower,currentSpeed,direction;
     protected String modelName;
+
+    protected Point position;
     public int getNrDoors(){
         return nrDoors;
     }
@@ -31,22 +33,13 @@ import java.lang.Math;
     public int getWeight() {
         return weight;
     }
-    public double getY() {
-        return y;
-    }
-    public double getX() {
-        return x;
-     }
+
+    public Point getPosition() { return position; }
     public void setY(double y) {
-          this.y = y;
+          this.position.y = (int) y;
       }
     public void setX(double x) {
-          this.x = x;
-      }
-     public double measureDistance(Car a, Car b) {
-        double xDiff=  a.getX() - b.getX();
-        double yDiff=  a.getY() - b.getY();
-        return Math.sqrt(Math.pow(xDiff,2)+Math.pow(yDiff,2));
+          this.position.x = (int) x;
       }
 
     public void incrementSpeed(double amount){
@@ -90,13 +83,13 @@ import java.lang.Math;
         }
         // negate the components to move opposite to the facing direction if speed <0
         if(currentSpeed<0) {
-            x=x+(xComponent/-1);
-            y=y+(yComponent/-1);
+            position.x = position.x + (int) (xComponent/-1);
+            position.y= position.y + (int) (yComponent/-1);
          }
         // speed is >= 0 ,new x,y positions
         else {
-            x=x+xComponent;
-            y=y+yComponent;
+            position.x = position.x + (int) xComponent;
+            position.y = position.y + (int) yComponent;
         }
     }
 

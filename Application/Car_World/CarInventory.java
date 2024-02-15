@@ -1,6 +1,8 @@
+package Application.Car_World;
+
 import java.util.*;
 
-public class CarInventory <T extends Car> {
+class CarInventory <T extends Car> {
     private int capacity;
     private List<T> inventory = new ArrayList<>(capacity);;
 

@@ -1,11 +1,13 @@
+package Application.Car_World;
+
 import java.awt.*;
 
-public class Scania extends Car implements HasTruckBed {
+class Scania extends Car implements HasTruckBed {
     private int truckBedAngle;
     private TruckBed truckBed;
     public Scania(){
         weight=3000;
-        modelName = "Scania";
+        modelName = "Application.Application.Application.Graphics.Graphics.Application.Graphics.Car_World.Application.Graphics.Graphics.Application.Graphics.Car_World.Scania";
         nrDoors = 2;
         enginePower=750;
         color = Color.pink;

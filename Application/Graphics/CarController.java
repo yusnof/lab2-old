@@ -1,5 +1,6 @@
+package Application.Graphics;
+
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -18,6 +19,7 @@ public class CarController {
     // The timer is started with a listener (see below) that executes the statements
     // each step between delays.
     private Timer timer = new Timer(delay, new TimerListener());
+
 
     // The frame that represents this instance View of the MVC pattern
     CarView frame;
@@ -55,7 +57,7 @@ public class CarController {
                 int x = (int) Math.round(cars.get(i).getX());
                 int y = (int) Math.round(cars.get(i).getY());
                 frame.drawPanel.moveit(x, y, i);
-                if(cars.get(i).getClass()==Volvo240.class){
+                if(cars.get(i).getClass()== Volvo240.class){
                     if (distanceToWorkshop(cars.get(i)) <= 50) {
                         removeCarAddToGarage(cars.get(i), workShop);
                     }

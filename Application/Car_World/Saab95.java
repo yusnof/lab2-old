@@ -1,13 +1,15 @@
+package Application.Car_World;
+
 import java.awt.*;
 
-public class Saab95 extends Car{
+class Saab95 extends Car{
 
     public boolean turboOn;
 
     public Saab95(){
         weight=1000;
         nrDoors = 2;
-        modelName = "Saab95";
+        modelName = "Application.Application.Application.Graphics.Graphics.Application.Graphics.Car_World.Application.Graphics.Graphics.Application.Graphics.Car_World.Saab95";
         color = Color.red;
         turboOn=false;
         enginePower = 100;

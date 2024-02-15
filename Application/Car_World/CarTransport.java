@@ -1,8 +1,9 @@
+package Application.Car_World;
+
 import java.awt.*;
-import java.util.ArrayList;
 import java.util.List;
 
-public class CarTransport extends Car implements HasTruckBed {
+class CarTransport extends Car implements HasTruckBed {
 
     private final CarInventory<Car> carInventory;
     private final TruckBed truckBed;

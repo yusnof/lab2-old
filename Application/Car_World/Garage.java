@@ -1,8 +1,9 @@
+package Application.Car_World;
+
 import java.awt.*;
-import java.util.ArrayList;
 import java.util.List;
 
-public class Garage<T extends Car>{
+class Garage<T extends Car>{
 
     private final int capacity;
     private final String name;
