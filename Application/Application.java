@@ -11,7 +11,12 @@ import java.util.ArrayList;
 import javax.imageio.ImageIO;
 
 public class Application {
-    public ArrayList<Application.Car_World.Car> cars;
+    public ArrayList<GUIcomponent> GUIcomponents;
+    public CarController carController;
+    public CarView carView;
+    BufferedImage volvoImage;
+    BufferedImage saabImage;
+    BufferedImage scaniaImage;
 
     public Application() {
         carController = new CarController();
