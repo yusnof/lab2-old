@@ -8,6 +8,7 @@ import Application.Graphics.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
+import javax.imageio.ImageIO;
 
 public class Application {
     public ArrayList<Application.Car_World.Car> cars;
