@@ -9,7 +9,8 @@ public class Saab95 extends Car{
     public Saab95(){
         weight=1000;
         nrDoors = 2;
-        modelName = "Application.Application.Application.Graphics.Graphics.Application.Graphics.Car_World.Application.Graphics.Graphics.Application.Graphics.Car_World.Saab95";
+        imageSource = "pics/Saab95.jpg";
+        modelName = "Saab95";
         color = Color.red;
         turboOn=false;
         enginePower = 100;

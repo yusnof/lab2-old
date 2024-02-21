@@ -7,7 +7,7 @@ import java.lang.Math;
     protected int nrDoors,weight;
     protected Color color;
     protected double enginePower,currentSpeed,direction;
-    protected String modelName;
+    protected String modelName, imageSource;
 
     protected Point position;
     public int getNrDoors(){

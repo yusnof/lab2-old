@@ -7,6 +7,7 @@ public class Garage<T extends Car>{
 
     private final int capacity;
     private final String name;
+    String ImageSource;
     private final CarInventory<T> carInventory;
 
     public Garage(int capacity){

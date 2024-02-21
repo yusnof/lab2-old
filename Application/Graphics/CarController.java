@@ -3,14 +3,8 @@ package Application.Graphics;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
-import java.util.ArrayList;
-
 import Application.Application;
 import Application.Car_World.Garage;
-import Application.Car_World.GarageFactory;
-import Application.Car_World.CarFactory;
-import Application.Graphics.CarView;
 
 
 
@@ -81,7 +75,7 @@ public class CarController {
    }
 
     // Calls the gas method for each car once
-    void gas(List<Application.GUIcomponent> cars , int amount) {
+    void gas(int amount) {
         double gas = ((double) amount) / 100;
         for (Application.GUIcomponent g : cars) {
             g.thing.gas(gas);
