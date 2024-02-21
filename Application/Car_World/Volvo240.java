@@ -7,6 +7,7 @@ import java.awt.*;
     public final static double trimFactor = 1.25;
 
     public Volvo240(){
+        imageSource= "pics/Volvo240.jpg";
         weight=1000;
         nrDoors = 4;
         color = Color.black;

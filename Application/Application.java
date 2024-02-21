@@ -9,7 +9,6 @@ import java.util.ArrayList;
 
 
 public class Application {
-    public ArrayList<GUIcomponent> GUIcomponents;
     public CarController carController;
     public CarView carView;
     public CarWorld carWorld;
