@@ -10,6 +10,7 @@ import java.lang.Math;
     protected String modelName, imageSource;
 
     protected Point position;
+    public String getImageSource() { return imageSource; }
     public int getNrDoors(){
         return nrDoors;
     }

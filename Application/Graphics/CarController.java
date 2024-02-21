@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import Application.Application;
+import Application.Car_World.CarWorld;
 import Application.Car_World.Garage;
 
 
@@ -22,14 +23,15 @@ public class CarController {
     // The timer is started with a listener (see below) that executes the statements
     // each step between delays.
     private Timer timer = new Timer(delay, new TimerListener());
+    private final CarWorld model;
 
+    public CarController(CarWorld model) {
+        this.model = model;
+    }
 
 
     // The frame that represents this instance View of the MVC pattern
     CarView frame;
-    // A list of cars, modify if needed
-     ArrayList<Application.Car_World.Car> cars = new ArrayList<>();
-     Garage garage = GarageFactory.createGarage(100);
     //methods:
 
 
