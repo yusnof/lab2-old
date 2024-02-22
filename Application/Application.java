@@ -19,10 +19,14 @@ public class Application {
     private Timer timer = new Timer(delay, new Application.TimerListener());
 
     public Application() {
-        carWorld = new CarWorld();
-        carController = new CarController(carWorld);
-        carView = new CarView("CarSim 1.0" , carController);
+        int X=800;
+        int Y=800;
 
+        carWorld = Application.createModel(X,Y);
+        carController = new CarController(carWorld);
+        carView = new CarView("CarSim 1.0" , carController,X,Y);
+
+        carWorld.addListener(carView);
     }
 
     public static CarWorld createModel(int x, int y) {
@@ -37,6 +41,7 @@ public class Application {
     public static void main(String[] args) {
 
         Application application = new Application();
+
 
         // Start a new view and send a reference of self
 

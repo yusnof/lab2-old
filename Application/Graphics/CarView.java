@@ -19,13 +19,13 @@ import java.awt.event.ActionListener;
 
 public class
 CarView  extends JFrame implements ModelUpdateListener {
-    private static final int X = 800;
-    private static final int Y = 800;
+    private static int X;
+    private static int Y;
 
     // The controller member
     CarController carC;
 
-    DrawPanel drawPanel = new DrawPanel(X, Y-240);
+    DrawPanel drawPanel;
 
     JPanel controlPanel = new JPanel();
 
@@ -47,7 +47,10 @@ CarView  extends JFrame implements ModelUpdateListener {
     JButton removeACar = new JButton("Remove");
 
     // Constructor
-    public CarView(String framename, CarController cc){
+    public CarView(String framename, CarController cc,int X,int Y){
+       this.X=X;
+       this.Y=Y;
+        drawPanel = new DrawPanel(X, Y-240);
         this.carC = cc;
         initComponents(framename);
     }
@@ -57,7 +60,6 @@ CarView  extends JFrame implements ModelUpdateListener {
         //TODO Update graphics
         drawPanel.repaint();
     }
-
     // Sets everything in place and fits everything
     // TODO: Take a good look and make sure you understand how these methods and components work
     private void initComponents(String title) {

@@ -11,27 +11,40 @@ import static java.awt.geom.Point2D.distance;
 public class CarWorld {
     List<Car> cars = new ArrayList<>();
     public Garage<Volvo240> garage; //hardcodat ;)  ¯\_(ツ)_/¯ (.)
-    public List<ModelUpdateListener> listeners;
+    public List<ModelUpdateListener> listeners = new ArrayList<>();
+    private int XBound;
+    private int YBound;
 
-    public CarWorld(){
-        cars.add(CarFactory.createVolvo240());
-        cars.add(CarFactory.createSaab95()) ;
-        cars.add(CarFactory.createScania());
+    public CarWorld(int XBound ,int YBound){
+        this.XBound = XBound;
+        this.YBound = YBound;
 
         garage = new Garage<>(10);
     }
-
-    void gameLoop() {
-        for (Car car: cars) {
-            car.move();
-            int x = (int) Math.round(car.getPosition().x);
-            int y = (int) Math.round(car.getPosition().y);
-            // frame.drawPanel.moveit(x, y, i);
-            if (cars.getClass() == Application.Car_World.Volvo240.class) {
-                if (distance(garage.getPoint().x,car.position.x,garage.getPoint().y,car.position.y) <= 50) {
-                    removeCarAddToGarage(car);
+   public void update() {
+        while (true) {
+            for (Car car : cars) {
+                car.move();
+                if (car.getClass() == Volvo240.class) {
+                    if (distanceToWorkshop(car) <= 50) {
+                        //removeCarAddToGarage(car); TODO FIX
+                    }
+                }
+                if(carOutOfBounds(car)) {
+                    reverseSpeed(car);
                 }
             }
+            notifyListeners();
+        }
+    }
+    boolean carOutOfBounds(Car car) {
+        int x= car.getPosition().x;
+        int y= car.getPosition().y;
+        if(x>=XBound || x<=0 || y>= YBound || y<=0) {
+            return true;
+        }
+        else{
+            return false;
         }
     }
     public int distanceToWorkshop(Car car){
@@ -41,9 +54,7 @@ public class CarWorld {
         cars.remove(car);
         garage.addCar((Volvo240) car);
     }
-
-
-    void notifyListener() {
+    void notifyListeners() {
         for(ModelUpdateListener l: listeners) {
             l.actOnModelUpdate();
         }
@@ -51,10 +62,8 @@ public class CarWorld {
    public void addListener(ModelUpdateListener l) {
         listeners.add(l);
     }
-    public void addCar() {
-        if (cars.size() < 10) {
-            cars.add(CarFactory.createVolvo240());
-        }
+    public void addCar(Car car) {
+       cars.add(car);
     }
     public void removeCar(){
         if (!cars.isEmpty()){

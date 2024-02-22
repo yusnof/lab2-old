@@ -6,6 +6,7 @@ public class Scania extends Car implements HasTruckBed {
     private int truckBedAngle;
     private TruckBed truckBed;
     public Scania(){
+        position=new Point(0,0);
         weight=3000;
         imageSource = "pics/Scania.jpg";
         modelName = "Scania";

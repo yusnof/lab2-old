@@ -7,6 +7,7 @@ public class Saab95 extends Car{
     public boolean turboOn;
 
     public Saab95(){
+        position=new Point(0,0);
         weight=1000;
         nrDoors = 2;
         imageSource = "pics/Saab95.jpg";
