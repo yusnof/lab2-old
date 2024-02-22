@@ -45,8 +45,8 @@ public class CarController {
     // Calls the gas method for each car once
     void gas(int amount) {
         double gas = ((double) amount) / 100;
-        for (Car g: model.getCarsList()) {
-            g.gas(gas);
+        for (Car car: model.getCarsList()) {
+            car.gas(gas);
         }
     }
     void brake(int amount){
@@ -96,9 +96,13 @@ public class CarController {
         }
     }
     void addCar() {
-        model.getCarsList().add(CarFactory.createVolvo240());
+        if(model.getCarsList().size() <= 10) {
+            model.getCarsList().add(CarFactory.createVolvo240());
+        }
     }
     void removeCar() {
-        model.getCarsList().removeLast();
+        if(!model.getCarsList().isEmpty()) {
+            model.getCarsList().removeLast();
+        }
     }
 }

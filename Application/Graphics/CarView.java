@@ -122,6 +122,7 @@ CarView  extends JFrame implements ModelUpdateListener {
         gasButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                System.out.println("Gas increased by" + gasAmount);
                 carC.gas(gasAmount);
             }
         });

@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import Application.Car_World.CarWorld; 
 
 // This panel represents the animated part of the view with the car images.
 
@@ -28,31 +29,11 @@ public class DrawPanel extends JPanel {
 
 
     // Initializes the panel and reads the images
-    public DrawPanel(int x, int y) {
+    public DrawPanel(int x, int y, CarWorld model) {
+        this.model = model;
         this.setDoubleBuffered(true);
         this.setPreferredSize(new Dimension(x, y));
         this.setBackground(Color.green);
-
-         points = new ArrayList<>();
-
-        points.add(new Point(0,0));
-        points.add(new Point(0,200));
-        points.add(new Point(0,400));
-
-
-
-        // Print an error message in case file is not found with a try/catch block
-        try {
-            volvoImage = ImageIO.read(DrawPanel.class.getResourceAsStream("pics/Volvo240.jpg"));
-            saabImage = ImageIO.read(DrawPanel.class.getResourceAsStream("pics/Saab95.jpg"));
-            scaniaImage = ImageIO.read(DrawPanel.class.getResourceAsStream("pics/Scania.jpg"));
-
-            volvoWorkshopImage = ImageIO.read(DrawPanel.class.getResourceAsStream("pics/VolvoBrand.jpg"));
-        } catch (IOException ex)
-        {
-            ex.printStackTrace();
-        }
-
     }
 
     // This method is called each time the panel updates/refreshes/repaints itself
@@ -60,15 +41,20 @@ public class DrawPanel extends JPanel {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        g.drawImage(saabImage, points.get(0).x, points.get(0).y, null); // see javadoc for more info on the parameters
+        for (Car car: model.getCarsList()) {
+            try {
+                image = ImageIO.read(DrawPanel.class.getResourceAsStream(car.getImageSource()));
+                volvoWorkshopImage = ImageIO.read(DrawPanel.class.getResourceAsStream(model.garage.getImageSource()));
+             }
+            catch (IOException ex)
+            {
+                ex.printStackTrace();
+            }
+            System.out.println("Draw at "+car.getPosition().x);
+            g.drawImage(image,car.getPosition().x,car.getPosition().y,null);
+        }
+        // see javadoc for more info on the parameters
 
-        g.drawImage(scaniaImage, points.get(1).x , points.get(1).y, null);
-       //System.out.println("paintC:"+points.get(0).x +" "+ points.get(0).y);
-        g.drawImage(volvoImage, points.get(2).x , points.get(2).y , null);
-
-
-
-        g.drawImage(volvoWorkshopImage, volvoWorkshopPoint.x, volvoWorkshopPoint.y, null);
-
+        g.drawImage(volvoWorkshopImage, 100, 100, null);
     }
 }

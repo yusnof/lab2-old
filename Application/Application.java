@@ -42,11 +42,17 @@ public class Application {
 
         Application application = new Application();
 
+        while(true) {
+            try {
+                Thread.sleep(50);
+                application.carWorld.update();
+                System.out.println(application.carWorld.getCarsList().getFirst().getPosition().x + " " + application.carWorld.getCarsList().getFirst().getPosition().y);
+            }
+            catch (Exception e) {
+                System.out.println(e);
+            }
+        }
 
-        // Start a new view and send a reference of self
-
-        // Start the timer
-        application.timer.start();
     }
     private class TimerListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
