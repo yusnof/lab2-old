@@ -5,7 +5,9 @@ import Application.Graphics.CarController;
 import Application.Graphics.CarView;
 
 
-
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 
@@ -13,6 +15,8 @@ public class Application {
     public CarController carController;
     public CarView carView;
     public CarWorld carWorld;
+    private final int delay = 50;
+    private Timer timer = new Timer(delay, new Application.TimerListener());
 
     public Application() {
         carWorld = new CarWorld();
@@ -21,6 +25,15 @@ public class Application {
 
     }
 
+    public static CarWorld createModel(int x, int y) {
+        CarWorld cars = new CarWorld(x, y);
+
+        cars.addCar(CarFactory.createVolvo240());
+        cars.addCar(CarFactory.createSaab95());
+        cars.addCar(CarFactory.createVolvo240());
+
+        return cars;
+    }
     public static void main(String[] args) {
 
         Application application = new Application();
@@ -30,5 +43,10 @@ public class Application {
         // Start the timer
         application.timer.start();
     }
+    private class TimerListener implements ActionListener {
+        public void actionPerformed(ActionEvent e) {
+            carWorld.update();
 
+        }
+    }
 }

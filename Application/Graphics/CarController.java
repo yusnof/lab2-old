@@ -18,10 +18,9 @@ public class CarController {
     // member fields:
 
     // The delay (ms) corresponds to 20 updates a sec (hz)
-    private final int delay = 50;
     // The timer is started with a listener (see below) that executes the statements
     // each step between delays.
-    private Timer timer = new Timer(delay, new TimerListener());
+
     private final CarWorld model;
 
     public CarController(CarWorld model) {
@@ -88,7 +87,6 @@ public class CarController {
                 ((HasTruckBed) car).lowerTruckBed();
             }
         }
-
     }
     void truckBedUp(){
         for (Car car: model.getCarsList()) {
@@ -96,5 +94,11 @@ public class CarController {
                 ((HasTruckBed) car).raiseTruckBed();
             }
         }
+    }
+    void addCar() {
+        model.getCarsList().add(CarFactory.createVolvo240());
+    }
+    void removeCar() {
+        model.getCarsList().removeLast();
     }
 }
