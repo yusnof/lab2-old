@@ -1,6 +1,6 @@
 package Application.Car_World;
 
-interface HasTruckBed {
+public interface HasTruckBed {
      void raiseTruckBed();
      void lowerTruckBed();
 }

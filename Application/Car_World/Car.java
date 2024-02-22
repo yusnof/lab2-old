@@ -119,4 +119,10 @@ import java.lang.Math;
         }
     }
 
+    public void setCurrentSpeed(int speed){
+        currentSpeed = speed;
+    }
+
+
+
 }

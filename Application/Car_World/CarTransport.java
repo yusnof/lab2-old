@@ -28,7 +28,7 @@ class CarTransport extends Car implements HasTruckBed {
     }
 
     public void addCar(Car car){
-        if (currentSpeed == 0 && truckBed.isTruckBedDown() && car.getClass() != this.getClass() && measureDistance(car,this)<=3 && isCapacityNotFull(car)) {
+        if (currentSpeed == 0 && truckBed.isTruckBedDown() && car.getClass() != this.getClass() ){//&&  measureDistance(car,this)<=3 && isCapacityNotFull(car)) {
             carInventory.add(car);
             car.getPosition().x = this.getPosition().x;
             car.getPosition().y = this.getPosition().y;

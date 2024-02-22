@@ -1,6 +1,7 @@
 package Application.Car_World;
 
-import Application.Application;
+import Application.Car_World.Car;
+import Application.Car_World.Volvo240;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,7 +48,7 @@ public class CarWorld {
             l.actOnModelUpdate();
         }
     }
-    void addListener(ModelUpdateListener l) {
+   public void addListener(ModelUpdateListener l) {
         listeners.add(l);
     }
     public void addCar() {
@@ -59,5 +60,11 @@ public class CarWorld {
         if (!cars.isEmpty()){
             cars.removeLast();
         }
+    }
+    public List<Car> getCarsList() {
+        return cars;
+    }
+    public void reverseSpeed(Car car){
+        car.setCurrentSpeed((int)-car.getCurrentSpeed());
     }
 }

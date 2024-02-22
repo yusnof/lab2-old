@@ -5,6 +5,7 @@ import Application.Graphics.CarController;
 import Application.Graphics.CarView;
 
 
+
 import java.util.ArrayList;
 
 
@@ -27,7 +28,7 @@ public class Application {
         // Start a new view and send a reference of self
 
         // Start the timer
-        application.carController.getTimer().start();
+        application.timer.start();
     }
 
 }

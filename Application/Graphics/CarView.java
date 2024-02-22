@@ -44,7 +44,7 @@ CarView  extends JFrame implements ModelUpdateListener {
     JButton stopButton = new JButton("Stop all cars");
 
     JButton addACar = new JButton("Add");
-    JButton RemoveACar = new JButton("Remove");
+    JButton removeACar = new JButton("Remove");
 
     // Constructor
     public CarView(String framename, CarController cc){
@@ -98,7 +98,7 @@ CarView  extends JFrame implements ModelUpdateListener {
         controlPanel.add(turboOffButton, 4);
         controlPanel.add(lowerBedButton, 5);
         controlPanel.add(addACar,6);
-        controlPanel.add(RemoveACar,7);
+        controlPanel.add(removeACar,7);
 
         controlPanel.setPreferredSize(new Dimension((X/2)+4, 200));
         this.add(controlPanel);
@@ -165,6 +165,17 @@ CarView  extends JFrame implements ModelUpdateListener {
             @Override
             public void actionPerformed(ActionEvent e) {
                 carC.truckBedUp();
+            }
+        });
+        addACar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {carC.addCar();
+            }
+        });
+        removeACar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {carC.removeCar();
+
             }
         });
         // Make the frame pack all it's components by respecting the sizes if possible.
