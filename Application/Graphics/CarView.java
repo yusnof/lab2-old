@@ -1,5 +1,7 @@
 package Application.Graphics;
 
+import Application.Car_World.ModelUpdateListener;
+
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
@@ -15,7 +17,8 @@ import java.awt.event.ActionListener;
  * TODO: Write more actionListeners and wire the rest of the buttons
  **/
 
-public class CarView extends JFrame{
+public class
+CarView  extends JFrame implements ModelUpdateListener {
     private static final int X = 800;
     private static final int Y = 800;
 
@@ -47,6 +50,13 @@ public class CarView extends JFrame{
     public CarView(String framename, CarController cc){
         this.carC = cc;
         initComponents(framename);
+    }
+
+    @Override
+    public void actOnModelUpdate() {
+        //TODO Update graphics
+
+
     }
 
     // Sets everything in place and fits everything

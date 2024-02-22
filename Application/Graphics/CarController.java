@@ -43,16 +43,6 @@ public class CarController {
     private class TimerListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
 
-            for (int i =0 ; i < cars.size(); i ++) {
-                cars.get(i).move();
-                int x = (int) Math.round(cars.get(i).getX());
-                int y = (int) Math.round(cars.get(i).getY());
-                frame.drawPanel.moveit(x, y, i);
-                if(cars.get(i).getClass()== Application.Car_World.Volvo240.class){
-                    if (distanceToWorkshop(cars.get(i)) <= 50) {
-                        removeCarAddToGarage(cars.get(i), workShop);
-                    }
-                }
                 // repaint() calls the paintComponent method of the panel
                 frame.drawPanel.repaint();
                 if (x  >= frame.getBounds().width - 100 || x <= -1){

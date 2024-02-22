@@ -14,8 +14,10 @@ public class Application {
     public CarWorld carWorld;
 
     public Application() {
-        carController = new CarController();
+        carWorld = new CarWorld();
+        carController = new CarController(carWorld);
         carView = new CarView("CarSim 1.0" , carController);
+
     }
 
     public static void main(String[] args) {
