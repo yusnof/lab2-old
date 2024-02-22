@@ -3,7 +3,11 @@ package Application.Graphics;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
+import Application.Application;
+import Application.Car_World.CarWorld;
+import Application.Car_World.Garage;
+
+
 
 /*
  * This class represents the Controller part in the MVC pattern.
@@ -19,29 +23,19 @@ public class CarController {
     // The timer is started with a listener (see below) that executes the statements
     // each step between delays.
     private Timer timer = new Timer(delay, new TimerListener());
+    private final CarWorld model;
+
+    public CarController(CarWorld model) {
+        this.model = model;
+    }
 
 
     // The frame that represents this instance View of the MVC pattern
     CarView frame;
     //methods:
 
-    public static void main(String[] args) {
-        // Instance of this class
-        CarController cc = new CarController();
 
-         cc.cars.add(new Saab95());
-         cc.cars.add(new Scania());
-         cc.cars.add(new Volvo240());
 
-         cc.cars.get(1).setY(100);
-         cc.cars.get(2).setY(250);
-
-        // Start a new view and send a reference of self
-         cc.frame = new CarView("CarSim 1.0", cc);
-
-        // Start the timer
-         cc.timer.start();
-    }
 
     /* Each step the TimerListener moves all the cars in the list and tells the
      * view to update its images. Change this method to your needs.
@@ -54,7 +48,7 @@ public class CarController {
                 int x = (int) Math.round(cars.get(i).getX());
                 int y = (int) Math.round(cars.get(i).getY());
                 frame.drawPanel.moveit(x, y, i);
-                if(cars.get(i).getClass()== Volvo240.class){
+                if(cars.get(i).getClass()== Application.Car_World.Volvo240.class){
                     if (distanceToWorkshop(cars.get(i)) <= 50) {
                         removeCarAddToGarage(cars.get(i), workShop);
                     }
@@ -68,11 +62,15 @@ public class CarController {
         }
     }
 
-    int distanceToWorkshop(Car car){
+    public Timer getTimer (){
+        return timer;
+    }
+    //TODO Replace with other code
+    /*int distanceToWorkshop(Car car){
         double x = frame.drawPanel.volvoWorkshopPoint.x - car.getX() ;
         double y = frame.drawPanel.volvoWorkshopPoint.x - car.getY();
         return (int) Math.sqrt(Math.pow(x,2) + Math.pow(y,2));
-   }
+   }*/
    void removeCarAddToGarage(Car car, Garage garage) {
         cars.remove(car);
         garage.addCar(car);
@@ -81,9 +79,8 @@ public class CarController {
     // Calls the gas method for each car once
     void gas(int amount) {
         double gas = ((double) amount) / 100;
-        for (Car car : cars
-                ) {
-            car.gas(gas);
+        for (Application.GUIcomponent g : cars) {
+            g.thing.gas(gas);
         }
     }
     void brake(int amount){

@@ -1,14 +1,31 @@
 package Application;
 
-import Application.Car_World.CarFactory;
+import Application.Car_World.*;
+import Application.Graphics.CarController;
+import Application.Graphics.CarView;
+
 
 import java.util.ArrayList;
 
+
 public class Application {
-    public ArrayList<Application.Car_World.Car> cars;
+    public CarController carController;
+    public CarView carView;
+    public CarWorld carWorld;
 
     public Application() {
-        cars.add(CarFactory.createVolvo240());
+        carController = new CarController();
+        carView = new CarView("CarSim 1.0" , carController);
+    }
+
+    public static void main(String[] args) {
+
+        Application application = new Application();
+
+        // Start a new view and send a reference of self
+
+        // Start the timer
+        application.carController.getTimer().start();
     }
 
 }
