@@ -23,9 +23,6 @@ public class CarController {
 
     // The frame that represents this instance View of the MVC pattern
     CarView frame;
-    // A list of cars, modify if needed
-     ArrayList<Car> cars = new ArrayList<>();
-     Garage<Volvo240> workShop = new Garage<>(10);
     //methods:
 
     public static void main(String[] args) {
@@ -111,7 +108,6 @@ public class CarController {
                 ((Saab95) car).setTurboOn();
             }
         }
-
     }
     void turboOff(){
         for (Car car : cars) {
