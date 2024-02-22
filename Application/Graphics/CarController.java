@@ -15,22 +15,25 @@ import Application.Car_World.*;
  */
 
 public class CarController {
-    // member fields:
-
-    // The delay (ms) corresponds to 20 updates a sec (hz)
-    // The timer is started with a listener (see below) that executes the statements
-    // each step between delays.
+    private final int delay = 50;
+    //private Timer timer = new Timer(delay, new TimerListener());
 
     private final CarWorld model;
 
     public CarController(CarWorld model) {
         this.model = model;
+        //timer.start();
     }
 
 
     /* Each step the TimerListener moves all the cars in the list and tells the
      * view to update its images. Change this method to your needs.
      * */
+    /*private class TimerListener implements ActionListener {
+        public void actionPerformed(ActionEvent e) {
+            model.update();
+        }
+    }*/
     //TODO Replace with other code
     /*int distanceToWorkshop(Car car){
         double x = frame.drawPanel.volvoWorkshopPoint.x - car.getX() ;

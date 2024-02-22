@@ -38,9 +38,9 @@ public class CarWorld {
         }
     }
     boolean carOutOfBounds(Car car) {
-        int x= car.getPosition().x;
-        int y= car.getPosition().y;
-        if(x>=XBound || x<=0 || y>= YBound || y<=0) {
+        int x = car.getPosition().x;
+        int y = car.getPosition().y;
+        if (x >=XBound || x <= -10 || y>= YBound || y<=-10) {
             return true;
         }
         else{

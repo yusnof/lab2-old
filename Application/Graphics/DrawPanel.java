@@ -1,5 +1,8 @@
 package Application.Graphics;
 
+import Application.Car_World.Car;
+import Application.Car_World.CarWorld;
+
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
@@ -11,6 +14,7 @@ import Application.Car_World.CarWorld;
 // This panel represents the animated part of the view with the car images.
 
 public class DrawPanel extends JPanel {
+    CarWorld model;
     BufferedImage volvoImage;
     BufferedImage saabImage;
     BufferedImage scaniaImage;
@@ -18,14 +22,10 @@ public class DrawPanel extends JPanel {
     Point point;
 
     ArrayList<Point> points;
-
-    BufferedImage volvoWorkshopImage;
     Point volvoWorkshopPoint = new Point(300,300);
 
-    // TODO: Make this general for all cars
-    void moveit(int x, int y, int index){
-        points.set(index,new Point(x,y));
-    }
+    Image volvoWorkshopImage;
+    BufferedImage image;
 
 
     // Initializes the panel and reads the images
