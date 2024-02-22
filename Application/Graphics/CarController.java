@@ -61,10 +61,10 @@ public class CarController {
         double y = frame.drawPanel.volvoWorkshopPoint.x - car.getY();
         return (int) Math.sqrt(Math.pow(x,2) + Math.pow(y,2));
    }*/
-   void removeCarAddToGarage(Car car, Garage garage) {
+  /* void removeCarAddToGarage(Car car, Garage garage) {
         cars.remove(car);
         garage.addCar(car);
-   }
+   } */
 
     // Calls the gas method for each car once
     void gas(int amount) {

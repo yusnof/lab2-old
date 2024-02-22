@@ -6,14 +6,19 @@ import java.util.List;
 public class Garage<T extends Car>{
 
     private final int capacity;
+    private final Point point;
     private final String name;
     String ImageSource;
     private final CarInventory<T> carInventory;
 
     public Garage(int capacity){
+        point = new Point(10,10);
         this.capacity = capacity;
         name = "Pimp my ride";
         carInventory = new CarInventory<T>(capacity);
+    }
+    public Point getPoint(){
+        return point;
     }
     public List<T> getCarInventory(){
         return carInventory.getInventory();
