@@ -22,9 +22,9 @@ public class CarWorld {
         garage = new Garage<>(10);
     }
    public void update() {
-        while (true) {
             for (Car car : cars) {
                 car.move();
+                System.out.println(car.getPosition().x);
                 if (car.getClass() == Volvo240.class) {
                     if (distanceToWorkshop(car) <= 50) {
                         //removeCarAddToGarage(car); TODO FIX
@@ -35,7 +35,6 @@ public class CarWorld {
                 }
             }
             notifyListeners();
-        }
     }
     boolean carOutOfBounds(Car car) {
         int x = car.getPosition().x;

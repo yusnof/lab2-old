@@ -1,5 +1,6 @@
 package Application.Graphics;
 
+import Application.Car_World.CarWorld;
 import Application.Car_World.ModelUpdateListener;
 
 import javax.swing.*;
@@ -14,7 +15,7 @@ import java.awt.event.ActionListener;
  * It initializes with being center on the screen and attaching it's controller in it's state.
  * It communicates with the Controller by calling methods of it when an action fires of in
  * each of it's components.
- * TODO: Write more actionListeners and wire the rest of the buttons
+ *
  **/
 
 public class
@@ -47,10 +48,10 @@ CarView  extends JFrame implements ModelUpdateListener {
     JButton removeACar = new JButton("Remove");
 
     // Constructor
-    public CarView(String framename, CarController cc,int X,int Y){
+    public CarView(String framename, CarController cc, int X, int Y, CarWorld model){
        this.X=X;
        this.Y=Y;
-        drawPanel = new DrawPanel(X, Y-240);
+        drawPanel = new DrawPanel(X, Y-240, model);
         this.carC = cc;
         initComponents(framename);
     }
@@ -58,6 +59,7 @@ CarView  extends JFrame implements ModelUpdateListener {
     @Override
     public void actOnModelUpdate() {
         //TODO Update graphics
+        System.out.println("Update");
         drawPanel.repaint();
     }
     // Sets everything in place and fits everything
