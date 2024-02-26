@@ -2,7 +2,7 @@ package Application.Car_World;
 
 import java.awt.*;
 import java.lang.Math;
-  public abstract class Car implements Movable{
+  public abstract class Car implements Movable {
 
     protected int nrDoors,weight;
     protected Color color;

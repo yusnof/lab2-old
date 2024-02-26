@@ -2,7 +2,7 @@ package Application.Car_World;
 
 import java.awt.*;
 
-public class Scania extends Car implements HasTruckBed {
+class Scania extends Car implements HasTruckBed {
     private int truckBedAngle;
     private TruckBed truckBed;
     public Scania(){

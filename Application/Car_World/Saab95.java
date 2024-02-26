@@ -2,7 +2,7 @@ package Application.Car_World;
 
 import java.awt.*;
 
-public class Saab95 extends Car{
+class Saab95 extends Car implements HasTurbo {
 
     public boolean turboOn;
 

@@ -17,7 +17,6 @@ public class Application {
         carWorld = Application.createModel(X,Y);
         carController = new CarController(carWorld);
         carView = new CarView("CarSim 1.0" , carController,X,Y, carWorld);
-
         carWorld.addListener(carView);
     }
 
@@ -27,7 +26,6 @@ public class Application {
         cars.addCar(CarFactory.createVolvo240());
         cars.addCar(CarFactory.createSaab95());
         cars.addCar(CarFactory.createScania());
-
         return cars;
     }
     public static void main(String[] args) {
@@ -45,5 +43,4 @@ public class Application {
         }
 
     }
-
 }

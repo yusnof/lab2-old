@@ -1,12 +1,8 @@
 package Application.Car_World;
 
-import Application.Car_World.Car;
-import Application.Car_World.Volvo240;
-
 import java.util.ArrayList;
 import java.util.List;
 
-import static java.awt.geom.Point2D.distance;
 
 public class CarWorld {
     List<Car> cars = new ArrayList<>();
@@ -20,18 +16,20 @@ public class CarWorld {
         this.YBound = YBound;
     }
    public void update() {
+       List<Car> foundCar = new ArrayList<>();
             for (Car car : cars) {
                 car.move();
-                System.out.println(car.getPosition().x);
                 if (car.getClass() == Volvo240.class) {
                     if (distanceToWorkshop(car) <= 50) {
-                        //removeCarAddToGarage(car); TODO FIX
+                        foundCar.add(car);
                     }
                 }
                 if(carOutOfBounds(car)) {
                     reverseSpeed(car);
                 }
             }
+            cars.removeAll(foundCar);
+            addCarsToGarage(foundCar);
             notifyListeners();
     }
     boolean carOutOfBounds(Car car) {
