@@ -1,14 +1,8 @@
 package Application;
 
 import Application.Car_World.*;
-import Application.Graphics.CarController;
+import Application.Controller.CarController;
 import Application.Graphics.CarView;
-
-
-import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.ArrayList;
 
 public class Application {
     public CarController carController;
@@ -44,7 +38,6 @@ public class Application {
             try {
                 Thread.sleep(50);
                 application.carWorld.update();
-                System.out.println(application.carWorld.getCarsList().getFirst().getPosition().x + " " + application.carWorld.getCarsList().getFirst().getPosition().y);
             }
             catch (Exception e) {
                 System.out.println(e);

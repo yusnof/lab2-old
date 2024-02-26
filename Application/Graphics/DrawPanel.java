@@ -41,6 +41,7 @@ public class DrawPanel extends JPanel {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
+        int counter = 0;
         for (Car car: model.getCarsList()) {
             try {
                 image = ImageIO.read(DrawPanel.class.getResourceAsStream(car.getImageSource()));

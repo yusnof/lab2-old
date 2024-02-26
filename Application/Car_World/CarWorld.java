@@ -18,8 +18,6 @@ public class CarWorld {
     public CarWorld(int XBound ,int YBound){
         this.XBound = XBound;
         this.YBound = YBound;
-
-        garage = new Garage<>(10);
     }
    public void update() {
             for (Car car : cars) {
@@ -49,9 +47,10 @@ public class CarWorld {
     public int distanceToWorkshop(Car car){
         return (int) garage.getPoint().distance(car.getPosition());
     }
-    public void removeCarAddToGarage(Car car){
-        cars.remove(car);
-        garage.addCar((Volvo240) car);
+    public void addCarsToGarage(List<Car> foundCars){
+        for(Car car: foundCars) {
+            garage.addCar((Volvo240) car);
+        }
     }
     void notifyListeners() {
         for(ModelUpdateListener l: listeners) {

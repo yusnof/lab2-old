@@ -9,6 +9,7 @@ public class Garage<T extends Car>{
     private final Point point;
     private final String name;
     String imageSource;
+    Object car;
     private final CarInventory<T> carInventory;
 
     public Garage(int capacity){

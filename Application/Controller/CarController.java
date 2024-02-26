@@ -1,9 +1,5 @@
-package Application.Graphics;
+package Application.Controller;
 
-import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import Application.Application;
 import Application.Car_World.*;
 
 
@@ -52,38 +48,38 @@ public class CarController {
             car.gas(gas);
         }
     }
-    void brake(int amount){
+    public void brake(int amount){
         double brake = ((double) amount) / 100;
         for (Car car: model.getCarsList()) {
             car.brake(brake);
         }
     }
-    void startAllCars(){
+    public void startAllCars(){
         for (Car car: model.getCarsList()) {
             car.startEngine();
         }
     }
-    void stopAllCars(){
+    public void stopAllCars(){
         for (Car car: model.getCarsList()) {
             car.stopEngine();
         }
     }
-    void turboOn(){
+    public void turboOn(){
         for (Car car: model.getCarsList()) {
             if(car.getClass() == Saab95.class){
                 ((Saab95) car).setTurboOn();
             }
         }
     }
-    void turboOff(){
-        for (Car car: model.getCarsList()) {
-            if(car.getClass() == Saab95.class){
-                ((Saab95) car).setTurboOff();
+    public void turboOff(){
+        for (Car car : model.getCarsList()) {
+            if(car instanceof HasTurbo ){
+                ((HasTurbo) car).setTurboOff();
             }
         }
 
     }
-    void truckBedDown(){
+    public void truckBedDown(){
         for (Car car: model.getCarsList()) {
             if(HasTruckBed.class.isAssignableFrom(car.getClass())){
                 System.out.println(car.getClass());
@@ -100,7 +96,8 @@ public class CarController {
     }
     void addCar() {
         if(model.getCarsList().size() <= 10) {
-            model.getCarsList().add(CarFactory.createVolvo240());
+            model.addCar(CarFactory.createVolvo240());
+            System.out.println(model.getCarsList().toString());
         }
     }
     void removeCar() {

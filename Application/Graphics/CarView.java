@@ -2,7 +2,7 @@ package Application.Graphics;
 
 import Application.Car_World.CarWorld;
 import Application.Car_World.ModelUpdateListener;
-
+import Application.Controller.CarController;
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
