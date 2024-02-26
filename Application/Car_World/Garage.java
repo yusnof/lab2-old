@@ -3,7 +3,7 @@ package Application.Car_World;
 import java.awt.*;
 import java.util.List;
 
-public class Garage<T extends Car>{
+public class Garage<T extends Car> {
 
     private final int capacity;
     private final Point point;
@@ -11,7 +11,6 @@ public class Garage<T extends Car>{
     String imageSource;
     Object car;
     private final CarInventory<T> carInventory;
-
     public Garage(int capacity){
         imageSource="pics/VolvoBrand.jpg";
         point = new Point(10,10);
@@ -26,9 +25,7 @@ public class Garage<T extends Car>{
         return carInventory.getInventory();
     }
 
-    public void addCar(T car){
-        carInventory.add(car);
-    }
+    public void addCar(T car){ carInventory.add(car);}
     public String getImageSource(){return imageSource;}
 
     public void pimpAllCars (){

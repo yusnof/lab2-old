@@ -6,7 +6,7 @@ import java.util.List;
 
 public class CarWorld {
     List<Car> cars = new ArrayList<>();
-    public Garage<Volvo240> garage; //hardcodat ;)  ¯\_(ツ)_/¯ (.)
+    public Garage garage = GarageFactory.createGarage(10); //hardcodat ;)  ¯\_(ツ)_/¯
     public List<ModelUpdateListener> listeners = new ArrayList<>();
     private int XBound;
     private int YBound;
