@@ -1,8 +1,8 @@
 package Application.Car_World;
 
 public class CarFactory {
-    public static Car createVolvo240() {
-        return new Volvo240();
+    public static Car createVolvo240(int x, int y) {
+        return new Volvo240(x,y);
     }
     public static Car createSaab95(int x, int y) {
         return new Saab95(x, y);

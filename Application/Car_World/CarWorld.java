@@ -20,22 +20,32 @@ public class CarWorld {
             for (Car car : cars) {
                 car.move();
                 if (car.getClass() == Volvo240.class) {
-                    if (distanceToWorkshop(car) <= 50) {
+                    if (distanceToWorkshop(car) <= 10) {
                         foundCar.add(car);
                     }
                 }
                 if(carOutOfBounds(car)) {
+                    moveCarIntoBounds(car);
                     reverseSpeed(car);
                 }
             }
-            cars.removeAll(foundCar); //raden gör att vi krashar
+            cars.removeAll(foundCar);
             addCarsToGarage(foundCar);
             notifyListeners();
+    }
+
+    void moveCarIntoBounds(Car car) {
+        if (car.getPosition().x > XBound) {
+            car.setX(XBound);
+        }
+        else if (car.getPosition().x < 0) {
+            car.setX(0);
+        }
     }
     boolean carOutOfBounds(Car car) {
         int x = car.getPosition().x;
         int y = car.getPosition().y;
-        if (x >=XBound || x <= -10 || y>= YBound || y<=-10) {
+        if (x >= XBound || x <= -10 || y >= YBound || y<=-10) {
             return true;
         }
         else{

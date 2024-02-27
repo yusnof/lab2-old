@@ -75,7 +75,7 @@ public class CarController {
     }
     public void removeCar() {
         if(!model.getCarsList().isEmpty()) {
-            model.getCarsList().removeLast();
+            model.removeCar();
         }
     }
 }

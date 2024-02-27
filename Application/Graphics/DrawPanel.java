@@ -28,7 +28,6 @@ public class DrawPanel extends JPanel {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        int counter = 0;
         for (Car car: model.getCarsList()) {
             try {
                 image = ImageIO.read(DrawPanel.class.getResourceAsStream(car.getImageSource()));
@@ -39,7 +38,6 @@ public class DrawPanel extends JPanel {
                 ex.printStackTrace();
             }
             g.drawImage(image,car.getPosition().x,car.getPosition().y ,null);
-            counter += 200;
         }
         g.drawImage(volvoWorkshopImage, 200, 400, null);
     }
