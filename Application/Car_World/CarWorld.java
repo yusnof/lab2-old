@@ -28,7 +28,7 @@ public class CarWorld {
                     reverseSpeed(car);
                 }
             }
-            cars.removeAll(foundCar);
+            cars.removeAll(foundCar); //raden gör att vi krashar
             addCarsToGarage(foundCar);
             notifyListeners();
     }
@@ -67,7 +67,11 @@ public class CarWorld {
         }
     }
     public List<Car> getCarsList() {
-        return cars;
+        ArrayList copy = new ArrayList(cars.size());
+        for (Car car : cars) {
+            copy.add(car);
+        }
+        return copy;
     }
     public void reverseSpeed(Car car){
         car.setCurrentSpeed((int)-car.getCurrentSpeed());

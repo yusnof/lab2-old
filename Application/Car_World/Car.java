@@ -24,7 +24,7 @@ import java.lang.Math;
         this.color = color;
     }
     public void startEngine(){
-        currentSpeed = 0.1;
+        currentSpeed = 50;
     }
     public double speedFactor() {
         return enginePower * 0.01;

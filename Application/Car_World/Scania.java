@@ -5,8 +5,8 @@ import java.awt.*;
 class Scania extends Car implements HasTruckBed {
     private int truckBedAngle;
     private TruckBed truckBed;
-    public Scania(){
-        position=new Point(0,0);
+    public Scania(int x, int y){
+        position=new Point(x,y);
         weight=3000;
         imageSource = "pics/Scania.jpg";
         modelName = "Scania";

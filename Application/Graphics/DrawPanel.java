@@ -41,6 +41,6 @@ public class DrawPanel extends JPanel {
             g.drawImage(image,car.getPosition().x,car.getPosition().y ,null);
             counter += 200;
         }
-        g.drawImage(volvoWorkshopImage, 200, 200, null);
+        g.drawImage(volvoWorkshopImage, 200, 400, null);
     }
 }

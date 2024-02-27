@@ -6,8 +6,8 @@ class Saab95 extends Car implements HasTurbo {
 
     public boolean turboOn;
 
-    public Saab95(){
-        position=new Point(0,0);
+    public Saab95(int x, int y){
+        position=new Point(x,y);
         weight=1000;
         nrDoors = 2;
         imageSource = "pics/Saab95.jpg";

@@ -69,7 +69,7 @@ public class CarController {
     }
     public void addCar() {
         if(model.getCarsList().size() <= 10) {
-            model.addCar(CarFactory.createVolvo240());
+            model.addCar(CarFactory.createVolvo240(0, 400));
             System.out.println(model.getCarsList().toString());
         }
     }

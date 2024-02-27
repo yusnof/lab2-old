@@ -23,9 +23,9 @@ public class Application {
     public static CarWorld createModel(int x, int y) {
         CarWorld cars = new CarWorld(x, y);
 
-        cars.addCar(CarFactory.createVolvo240());
-        cars.addCar(CarFactory.createSaab95());
-        cars.addCar(CarFactory.createScania());
+        cars.addCar(CarFactory.createVolvo240(0, 0));
+        cars.addCar(CarFactory.createSaab95(0, 100));
+        cars.addCar(CarFactory.createScania(0, 300));
         return cars;
     }
     public static void main(String[] args) {

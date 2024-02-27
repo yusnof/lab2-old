@@ -13,7 +13,7 @@ public class Garage<T extends Car> {
     private final CarInventory<T> carInventory;
     public Garage(int capacity){
         imageSource="pics/VolvoBrand.jpg";
-        point = new Point(10,10);
+        point = new Point(200,400);
         this.capacity = capacity;
         name = "Pimp my ride";
         carInventory = new CarInventory<T>(capacity);
